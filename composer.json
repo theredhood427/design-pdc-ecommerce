@@ -1,0 +1,15 @@
+{
+    "name": "calvinkent/pdc10-ecommerce-game_store",
+    "autoload": {
+        "psr-4": {
+            "Calvinkent\\Pdc10EcommerceGameStore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "clvnknt",
+            "email": "p.calvinkent@gmail.com"
+        }
+    ],
+    "require": {}
+}
