@@ -59,18 +59,48 @@
   })
 </script>
 <!-- Footer-->
-<footer class="py-5 bg-dark">
-            <div class="container">
-              <p class="m-0 text-center text-white">Copyright &copy; <?php echo $_settings->info('short_name') ?> 2022</p>
-              <p class="m-0 text-center text-white">Developed By: <a href="https://youtu.be/dQw4w9WgXcQ">Team Bulldogs</a></p>
-          </div>
-        </footer>
+<footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
 
+          <div class="col-lg-3 col-md-7 footer-info">
+            <h3>GameStar</h3>
+            <p>Failure doesn't mean the game is over, it means try again with experience. Reach for the stars explore wonders with our store.
+              Happy gaming, gamers...
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-7 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              1700 Street <br>
+              somewhere in Manila<br>
+              <strong>Phone:</strong> +639158045416<br>
+              <strong>Email:</strong> admin-service@gamestar.com.ph<br>
+            </p>
+          </div>        
+
+          <div class="col-lg-3 col-md-7">
+        <h5><img src="uploads/logo-footer.png" alt=""></h5>
+          </div>       
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <?php echo $_settings->info('short_name') ?> 2023</p> <strong>GameStar</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Developed by: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Bulldogs</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
    
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button)
     </script>
+    <!-- Style -->
+    <link href="inc/style.css" rel="stylesheet">
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->
@@ -99,7 +129,10 @@
     <!-- <script src="<?php echo base_url ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script> -->
     <!-- AdminLTE App -->
     <script src="<?php echo base_url ?>dist/js/adminlte.js"></script>
-    <div class="daterangepicker ltr show-ranges opensright">
+
+
+    
+   <!--  <div class="daterangepicker ltr show-ranges opensright">
       <div class="ranges">
         <ul>
           <li data-range-key="Today">Today</li>
@@ -121,4 +154,4 @@
       </div>
       <div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div>
     </div>
-    <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>
+    <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div> -->

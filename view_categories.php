@@ -52,7 +52,7 @@ elseif(isset($_GET['s'])){
                     <div class="card-body p-4">
                         <div class="">
                             <!-- Product name-->
-                            <h5 class="fw-bolder border-bottom border-primary"><?php echo $row['category'] ?></h5>
+                            <h5 class="fw-bolder border-bottom border-warning"><?php echo $row['category'] ?></h5>
                         </div>
                         <p class="m-0 truncate"><?php echo $row['description'] ?></p>
                     </div>
