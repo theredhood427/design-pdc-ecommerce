@@ -17,7 +17,7 @@
     }
 ?>
 <?php require_once('inc/footer.php') ?>
-<div class="modal fade" id="confirm_modal" role='dialog'>
+<!-- div class="modal fade" id="confirm_modal" role='dialog'>
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -32,23 +32,19 @@
       </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="modal fade" id="uni_modal" role='dialog'>
-    <div class="modal-dialog   rounded-0 modal-md modal-dialog-centered" role="document">
-      <div class="modal-content  rounded-0">
+    <div class="modal-dialog   rounded-1 modal-md modal-dialog-centered" role="document">
+      <div class="modal-content  rounded-1">
         <div class="modal-header">
         <h5 class="modal-title"></h5>
       </div>
       <div class="modal-body">
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-      </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="uni_modal_right" role='dialog'>
+  <!-- <div class="modal fade" id="uni_modal_right" role='dialog'>
     <div class="modal-dialog  rounded-0 modal-full-height  modal-md" role="document">
       <div class="modal-content rounded-0">
         <div class="modal-header">
@@ -66,7 +62,7 @@
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
               <button type="button" class="btn-close" data-dismiss="modal"><span class="fa fa-times"></span></button>
-              <img src="" alt="">
+              <img src="" alt=""> -->
       </div>
     </div>
   </div>

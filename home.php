@@ -38,7 +38,7 @@
                     }
             ?>
             <div class="col mb-5">
-                <div class="card product-item">
+                <div class="card product-item h-100">
                     <!-- Product image-->
                     <img class="card-img-top w-100 book-cover" src="<?php echo validate_image($img) ?>" alt="..." />
                     <!-- Product details-->

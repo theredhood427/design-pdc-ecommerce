@@ -278,7 +278,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 .login-card-body .input-group .form-control:focus ~ .input-group-append .input-group-text,
 .register-card-body .input-group .form-control:focus ~ .input-group-prepend .input-group-text,
 .register-card-body .input-group .form-control:focus ~ .input-group-append .input-group-text {
-  border-color: #80bdff;
+  border-color: #feea13;
 }
 
 .login-card-body .input-group .form-control.is-valid:focus,
@@ -326,8 +326,8 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .dark-mode .login-card-body,
 .dark-mode .register-card-body {
-  background-color: #343a40;
-  border-color: #6c757d;
+  background-color: #1a1a1a;
+  border-color: #131313;
   color: #fff;
 }
 

@@ -55,13 +55,13 @@
     }
   })
 </script>
-<footer class="main-footer text-sm">
+<footer class="dark-mode main-footer text-sm">
         <strong>Copyright © <?php echo date('Y') ?>. 
         <!-- <a href=""></a> -->
         </strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-          <b><?php echo $_settings->info('short_name') ?> (by: <a href="https://youtu.be/dQw4w9WgXcQ" target="blank">Team Bulldogs</a> )</b> v1.0
+          <b><?php echo $_settings->info('short_name') ?> (by: <a href="https://youtu.be/dQw4w9WgXcQ" target="blank">Team Bulldogs</a> )</b>
         </div>
       </footer>
     </div>

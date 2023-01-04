@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <script>
     $(function(){
         $('#create_account').click(function(){

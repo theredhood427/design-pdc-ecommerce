@@ -8,7 +8,7 @@
 	alert_toast("<?php echo $_settings->flashdata('error') ?>",'error')
 </script>
 <?php endif;?>
-<div class="card card-outline card-primary">
+<div class="card card-outline card-warning">
 	<div class="card-header">
 		<h3 class="card-title">List of Orders</h3>
 		<!-- <div class="card-tools">
