@@ -48,7 +48,7 @@
                             <h5 class="fw-bolder"><?php echo $row['product_name'] ?></h5>
                             <!-- Product price-->
                             <?php foreach($inv as $k=> $v): ?>
-                                <span><b>Price: </b><?php echo $v ?></span>
+                                <span><b>Price: </b>₱<?php echo $v ?></span>
                             <?php endforeach; ?>
                         </div>
                         <p class="m-0"><small>By: <?php echo $row['company'] ?></small></p>

@@ -12,15 +12,15 @@
                         <input type="hidden" name="id" value="<?php echo $_settings->userdata('id') ?>">
                             <div class="form-group">
                                 <label for="firstname" class="control-label">Firstname</label>
-                                <input type="text" name="firstname" class="form-control form" value="<?php echo $_settings->userdata('firstname') ?>" required>
+                                <input type="text" name="firstname" class="form-control form" value="<?php echo $_settings->userdata('firstname') ?>" pattern="[a-zA-Z ]+" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastname" class="control-label">Lastname</label>
-                                <input type="text" name="lastname" class="form-control form" value="<?php echo $_settings->userdata('lastname') ?>" required>
+                                <input type="text" name="lastname" class="form-control form" value="<?php echo $_settings->userdata('lastname') ?>" pattern="[a-zA-Z ]+" required>
                             </div>
                             <div class="form-group">
                                 <label for="" class="control-label">Contact</label>
-                                <input type="text" class="form-control form-control-sm form" name="contact" value="<?php echo $_settings->userdata('contact') ?>" required>
+                                <input type="text" class="form-control form-control-sm form" name="contact" value="<?php echo $_settings->userdata('contact') ?>"  minlength="11" maxlength="11" pattern="[0-9-+]+" required>
                             </div>
                             <div class="form-group">
                                 <label for="" class="control-label">Gender</label>

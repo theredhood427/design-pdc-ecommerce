@@ -44,8 +44,9 @@
                 <div class="fs-5 mb-5">
                 &#8369; <span id="price"><?php echo number_format($inv[0]['price']) ?></span>
                 <br>
-                <span><small><b>Available Stock:</b> <span id="avail"><?php echo $inv[0]['quantity'] ?></span></small></span>
+                <!-- <span><small><b>Available Stock:</b> <span id="avail"><?php echo $inv[0]['quantity'] ?></span></small></span> -->
                 </div>
+                <p>Quantity:</p>
                 <form action="" id="add-cart">
                 <div class="d-flex">
                     <input type="hidden" name="price" value="<?php echo $inv[0]['price'] ?>">
@@ -99,7 +100,7 @@
                             <h5 class="fw-bolder"><?php echo $row['product_name'] ?></h5>
                             <!-- Product price-->
                             <?php foreach($_inv as $k=> $v): ?>
-                                <span><b>Price: </b><?php echo $v ?></span>
+                                <span><b>Price: </b> ₱ <?php echo $v ?></span>
                             <?php endforeach; ?>
                             <p class="m-0"><small>By: <?php echo $row['company'] ?></small></p>
                         </div>

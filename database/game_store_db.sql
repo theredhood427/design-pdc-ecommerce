@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2022 at 01:54 PM
+-- Generation Time: Jan 07, 2023 at 01:53 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -35,6 +35,14 @@ CREATE TABLE `cart` (
   `quantity` int(30) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `client_id`, `inventory_id`, `price`, `quantity`, `date_created`) VALUES
+(10, 5, 10, 2990, 0, '2023-01-05 14:07:43'),
+(11, 6, 6, 663.48, 1, '2023-01-06 23:25:47');
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,9 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`id`, `firstname`, `lastname`, `gender`, `contact`, `email`, `password`, `default_delivery_address`, `date_created`) VALUES
 (1, 'Calvin Kent', 'Pamandanan', 'Male', '09982545122', 'pamandanan.calvinkent@auf.edu.ph', '68cff1f5dabbd64dbc523894541dbfdf', 'Mexico', '2021-07-16 10:34:48'),
-(3, 'David Aaron', 'Echon', 'Male', '09982514523', 'echon.davidaaron@auf.edu.ph', 'c3f185515ab658614c4e26b7987ce159', 'Angeles City', '2022-12-30 20:50:07');
+(3, 'David Aaron', 'Echon', 'Male', '09982514523', 'echon.davidaaron@auf.edu.ph', 'c3f185515ab658614c4e26b7987ce159', 'Angeles City', '2022-12-30 20:50:07'),
+(4, 'Russ', 'Wayne', 'Male', '09158045416', 'russ@gmail.com', '4c8541464489fa251790e4be3c10ac05', 'Konoha Angeles City ', '2023-01-02 13:06:37'),
+(5, 'Bobs', 'thebuilder', 'Male', '09167485736', 'bobs@gmail.com', '16411a5af21dfc2fb962d86a1b944c57', 'konoha street limawasawa', '2023-01-03 16:26:06');
 
 -- --------------------------------------------------------
 
@@ -109,7 +119,11 @@ INSERT INTO `inventory` (`id`, `product_id`, `quantity`, `price`, `date_created`
 (5, 5, 50, 3.51, '2022-12-30 03:40:53', '2022-12-30 16:59:51'),
 (6, 6, 50, 663.48, '2022-12-30 17:03:35', NULL),
 (7, 7, 50, 3.51, '2022-12-30 17:10:29', NULL),
-(8, 8, 50, 53.79, '2022-12-30 17:12:51', NULL);
+(8, 8, 50, 53.79, '2022-12-30 17:12:51', NULL),
+(9, 9, 50, 2000, '2023-01-02 21:05:23', '2023-01-07 04:41:44'),
+(10, 10, 30, 2990, '2023-01-04 01:45:07', NULL),
+(11, 11, 12, 5500, '2023-01-04 01:48:29', NULL),
+(12, 12, 17, 18000, '2023-01-04 01:52:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -135,7 +149,16 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `client_id`, `delivery_address`, `payment_method`, `order_type`, `amount`, `status`, `paid`, `date_created`, `date_updated`) VALUES
-(6, 3, 'Angeles City', 'cod', 2, 3.51, 3, 1, '2022-12-30 20:50:33', '2022-12-30 20:52:18');
+(6, 3, 'Angeles City', 'cod', 2, 3.51, 3, 1, '2022-12-30 20:50:33', '2022-12-30 20:52:18'),
+(7, 5, 'Konoha Angeles City ', 'cod', 1, 2990, 0, 0, '2023-01-05 14:06:57', NULL),
+(8, 4, 'Konoha Angeles City ', 'cod', 1, 5500, 0, 0, '2023-01-07 03:09:17', NULL),
+(9, 4, 'Konoha Angeles City ', 'cod', 2, 53.79, 0, 0, '2023-01-07 03:10:31', NULL),
+(10, 4, 'Konoha Angeles City ', 'cod', 1, 10490, 0, 0, '2023-01-07 03:30:52', NULL),
+(11, 4, 'Konoha Angeles City ', 'cod', 1, 2000, 0, 0, '2023-01-07 03:42:26', NULL),
+(12, 4, 'Konoha Angeles City ', 'cod', 2, 663.48, 0, 0, '2023-01-07 03:42:50', NULL),
+(13, 4, 'Konoha Angeles City ', 'cod', 2, 2000, 0, 0, '2023-01-07 04:07:34', NULL),
+(14, 4, 'Konoha Angeles City ', 'cod', 1, 24000, 0, 0, '2023-01-07 04:38:57', NULL),
+(15, 4, 'Konoha Angeles City ', 'cod', 2, 2000, 0, 0, '2023-01-07 04:39:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -157,7 +180,18 @@ CREATE TABLE `order_list` (
 --
 
 INSERT INTO `order_list` (`id`, `order_id`, `product_id`, `quantity`, `price`, `total`) VALUES
-(5, 6, 7, 1, 3.51, 3.51);
+(5, 6, 7, 1, 3.51, 3.51),
+(6, 7, 10, 1, 2990, 2990),
+(7, 8, 11, 1, 5500, 5500),
+(8, 9, 8, 1, 53.79, 53.79),
+(9, 10, 10, 1, 2990, 2990),
+(10, 10, 9, 1, 2000, 2000),
+(11, 10, 11, 1, 5500, 5500),
+(12, 11, 9, 1, 2000, 2000),
+(13, 12, 6, 1, 663.48, 663.48),
+(14, 13, 9, 1, 2000, 2000),
+(15, 14, 9, 12, 2000, 24000),
+(16, 15, 9, 1, 2000, 2000);
 
 -- --------------------------------------------------------
 
@@ -184,7 +218,11 @@ INSERT INTO `products` (`id`, `category_id`, `sub_category_id`, `product_name`, 
 (5, 6, 8, 'SKULL & CO. NSW THUMB GRIP FOR SWITCH PRO/PS4/PS5 CONTROLLER (BLACK) (SET OF 6)', 'SKULL & CO.', '&lt;p&gt;The Joystick Covers Improve Control&lt;/p&gt;&lt;p&gt;Specifically designed for Nintendo SWITCH Pro Controller (NOT FOR JOY-CONS).&lt;/p&gt;&lt;p&gt;3 pairs of thumb grips with completely different designs to meet gamers&rsquo; needs.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Protect the original joystick from wear and tear.&lt;/li&gt;&lt;li&gt;Increased accuracy through extra height and active radius.&lt;/li&gt;&lt;li&gt;Made from a special \\&quot;grippy\\&quot; material which increases friction and provides more sensitivity to enhance your gaming experience.&lt;/li&gt;&lt;li&gt;Compatible with PS4 DUALSHOCK CONTROLLER and 8BitDo SN30 PRO BLUETOOTH GAMEPAD.&lt;/li&gt;&lt;/ul&gt;', 1, '2022-12-30 03:38:43'),
 (6, 5, 15, 'Sony PS5 Console God Of War Ragnarok Bundle + Choice of an Additional PS5 Dualsense Controller', 'PLAYSTATION', '&lt;p&gt;PlayStation&reg;5&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;The PS5&trade; console unleashes new gaming possibilities that you never anticipated.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D Audio, and a all-new generation of incredible PlayStation&reg; games.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Lightning Speed&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation&reg; console can do.&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Stunning Games&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Marvel at incredible graphics and experience new PS5&trade; features.&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Breathtaking Immersion&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.&lt;/p&gt;', 1, '2022-12-30 17:02:32'),
 (7, 5, 14, 'DOBE PS5 SILICON CASE FOR PS5 CONTROLLER (BLACK) (TP5-0541)', 'DOBE', '&lt;ul&gt;&lt;li&gt;Silicone Case: Rocker Cap suitable for PS5 controller.&lt;/li&gt;&lt;li&gt;Precise Hole Position: This product fits the controller completely and does not affect the operation.&lt;/li&gt;&lt;li&gt;Silicone Material: Environmentally friendly and soft feel.&lt;/li&gt;&lt;/ul&gt;', 1, '2022-12-30 17:07:58'),
-(8, 5, 16, 'PS5 ELDEN RING (ASIAN)', 'PLAYSTATION', '&lt;p&gt;The Golden Order has been broken.&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;In the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erd tree, has been shattered.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Marika&rsquo;s offspring, demigods all, claimed the shards of the Elden Ring known as the Great Runes, and the mad taint of their newfound strength triggered a war: The Shattering. A war that meant abandonment by the Greater Will.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;And now the guidance of grace will be brought to the Tarnished who were spurned by the grace of gold and exiled from the Lands Between. Ye dead who yet live, your grace long lost, follow the path to the Lands Between beyond the foggy sea to stand before the Elden Ring.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;And become the Elden Lord.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;A New Fantasy World &ndash; Journey through the Lands Between, a new fantasy world created by Hidetaka Miyazaki, creator of the influential Dark Souls video game series, and George R. R. Martin, author of The New York Times best-selling fantasy series, A Song of Ice and Fire. Unravel the mysteries of the Elden Ring&rsquo;s power. Encounter adversaries with profound backgrounds, characters with their own unique motivations for helping or hindering your progress, and fearsome creatures&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;World Exploration in the Lands Between &ndash; Elden Ring features vast fantastical landscapes and shadowy, complex dungeons that are connected seamlessly. Traverse the breathtaking world on foot or on horseback, alone or online with other players, and fully immerse yourself in the grassy plains, suffocating swamps, spiraling mountains, foreboding castles and other sites of grandeur on a scale never seen before in a FromSoftware title&lt;/p&gt;&lt;p&gt;Genre-Defining Gameplay &ndash; Create your character in FromSoftware&rsquo;s refined action-RPG and define your playstyle by experimenting with a wide variety of weapons, magical abilities, and skills found throughout the world. Charge into battle, pick off enemies one-by-one using stealth, or even call upon allies for aid. Many options are at your disposal as you decide how to approach exploration and combat&lt;/p&gt;', 1, '2022-12-30 17:12:26');
+(8, 5, 16, 'PS5 ELDEN RING (ASIAN)', 'PLAYSTATION', '&lt;p&gt;The Golden Order has been broken.&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;In the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erd tree, has been shattered.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;Marika&rsquo;s offspring, demigods all, claimed the shards of the Elden Ring known as the Great Runes, and the mad taint of their newfound strength triggered a war: The Shattering. A war that meant abandonment by the Greater Will.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;And now the guidance of grace will be brought to the Tarnished who were spurned by the grace of gold and exiled from the Lands Between. Ye dead who yet live, your grace long lost, follow the path to the Lands Between beyond the foggy sea to stand before the Elden Ring.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;And become the Elden Lord.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=\\&quot;font-size: 1rem;\\&quot;&gt;A New Fantasy World &ndash; Journey through the Lands Between, a new fantasy world created by Hidetaka Miyazaki, creator of the influential Dark Souls video game series, and George R. R. Martin, author of The New York Times best-selling fantasy series, A Song of Ice and Fire. Unravel the mysteries of the Elden Ring&rsquo;s power. Encounter adversaries with profound backgrounds, characters with their own unique motivations for helping or hindering your progress, and fearsome creatures&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;World Exploration in the Lands Between &ndash; Elden Ring features vast fantastical landscapes and shadowy, complex dungeons that are connected seamlessly. Traverse the breathtaking world on foot or on horseback, alone or online with other players, and fully immerse yourself in the grassy plains, suffocating swamps, spiraling mountains, foreboding castles and other sites of grandeur on a scale never seen before in a FromSoftware title&lt;/p&gt;&lt;p&gt;Genre-Defining Gameplay &ndash; Create your character in FromSoftware&rsquo;s refined action-RPG and define your playstyle by experimenting with a wide variety of weapons, magical abilities, and skills found throughout the world. Charge into battle, pick off enemies one-by-one using stealth, or even call upon allies for aid. Many options are at your disposal as you decide how to approach exploration and combat&lt;/p&gt;', 1, '2022-12-30 17:12:26'),
+(9, 6, 10, 'Spider-Man Ps4', 'Insomniac Games', '&lt;p&gt;Feel like Spiderman&lt;/p&gt;', 1, '2023-01-02 21:04:34'),
+(10, 5, 16, 'God of War Ragnarök', 'Santa Monica Studios', '&lt;p&gt;&lt;b&gt;God of War Ragnar&ouml;k&lt;/b&gt; is an action-adventure game developed by Santa Monica Studio and published by Sony Interactive Entertainment. It was released worldwide on November 9, 2022, for the PlayStation 4 and PlayStation 5, marking the first cross-gen release in the God of War series.&lt;br&gt;&lt;/p&gt;', 1, '2023-01-04 01:44:19'),
+(11, 5, 14, 'PlayStation PULSE 3D Wireless Headset', 'Sony', '&lt;p&gt;Sony Headset for the ps5.&lt;/p&gt;', 1, '2023-01-04 01:47:50'),
+(12, 7, 12, 'Nintendo Switch™ with Neon Blue and Neon Red Joy‑Con™', 'Nintendo', '&lt;p&gt;The Nintendo Switch is&amp;nbsp;a hybrid video game console, consisting of a console unit, a dock, and two Joy-Con controllers. Although it is a hybrid console, Nintendo classifies it as \\&quot;a home console that you can take with you on the go\\&quot;.&lt;br&gt;&lt;/p&gt;', 1, '2023-01-04 01:51:25');
 
 -- --------------------------------------------------------
 
@@ -204,7 +242,16 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `order_id`, `total_amount`, `date_created`) VALUES
-(4, 6, 3.51, '2022-12-30 20:50:33');
+(4, 6, 3.51, '2022-12-30 20:50:33'),
+(5, 7, 2990, '2023-01-05 14:06:57'),
+(6, 8, 5500, '2023-01-07 03:09:17'),
+(7, 9, 53.79, '2023-01-07 03:10:31'),
+(8, 10, 10490, '2023-01-07 03:30:52'),
+(9, 11, 2000, '2023-01-07 03:42:26'),
+(10, 12, 663.48, '2023-01-07 03:42:50'),
+(11, 13, 2000, '2023-01-07 04:07:34'),
+(12, 14, 24000, '2023-01-07 04:38:57'),
+(13, 15, 2000, '2023-01-07 04:39:25');
 
 -- --------------------------------------------------------
 
@@ -257,8 +304,8 @@ CREATE TABLE `system_info` (
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 (1, 'name', 'Ecommerce Game Store'),
-(6, 'short_name', 'Gamestar'),
-(11, 'logo', 'uploads/1672389420_GAme_Star_O-1__1_-removebg-preview.png'),
+(6, 'short_name', 'GT-STORE'),
+(11, 'logo', 'uploads/1672656900_gstarbrand.png'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
 (14, 'cover', 'uploads/1672389360_wall2.png');
 
@@ -287,7 +334,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
 (1, 'Calvin Kent', 'Pamandanan', 'ckpamandanan', '68cff1f5dabbd64dbc523894541dbfdf', 'uploads/1672404360_323024616_736750314167045_6535974261622998779_n.jpg', NULL, 1, '2021-01-20 14:02:37', '2022-12-30 20:46:25'),
-(4, 'Bobby Marcko', 'Cruz', 'bmcruz', 'ca249da45efe39d5748b7177534eaa83', 'uploads/1672404240_307653831_607022657782443_8823773374496124595_n.jpg', NULL, 0, '2021-06-19 08:36:09', '2022-12-30 20:44:21'),
+(4, 'Bobby Marcko', 'Cruz', 'bmcruz', 'ca249da45efe39d5748b7177534eaa83', 'uploads/1672823640_1672404240_307653831_607022657782443_8823773374496124595_n.jpg', NULL, 0, '2021-06-19 08:36:09', '2023-01-04 17:14:40'),
 (5, 'Ron Russelle', 'Bangsil', 'rrbangsil', '0e8f28c65802dcae529135e0765cbc75', 'uploads/1672404240_316141365_670040834765843_6765775325755166020_n.jpg', NULL, 0, '2021-06-19 10:01:51', '2022-12-30 20:44:48');
 
 --
@@ -368,7 +415,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -380,37 +427,37 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sub_categories`

@@ -22,15 +22,15 @@
                 
                 <div class="form-group">
                     <label for="" class="control-label">Firstname</label>
-                    <input type="text" class="form-control form-control-sm form" name="firstname" required>
+                    <input type="text" class="form-control form-control-sm form" name="firstname" pattern="[a-zA-Z ]+" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="control-label">Lastname</label>
-                    <input type="text" class="form-control form-control-sm form" name="lastname" required>
+                    <input type="text" class="form-control form-control-sm form" name="lastname" pattern="[a-zA-Z ]+" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="control-label">Contact</label>
-                    <input type="text" class="form-control form-control-sm form" name="contact" required>
+                    <input type="text" class="form-control form-control-sm form" name="contact" minlength="11"maxlength="11" pattern="[0-9-+]+" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="control-label">Gender</label>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label for="" class="control-label">Email</label>
-                    <input type="text" class="form-control form-control-sm form" name="email" required>
+                    <input type="email" class="form-control form-control-sm form" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="control-label">Password</label>

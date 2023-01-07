@@ -29,8 +29,10 @@
                 <span class="info-box-text">Pending Orders</span>
                 <span class="info-box-number">
                   <?php 
-                    $pending = $conn->query("SELECT sum(id) as total FROM `orders` where status = '0' ")->fetch_assoc()['total'];
-                    echo number_format($pending);
+                      $result = $conn->query("SELECT COUNT(*) as count FROM `orders` WHERE status = '0'");
+                      $row = $result->fetch_assoc();
+                      $count = $row['count'];
+                      echo $count;
                   ?>
                 </span>
               </div>

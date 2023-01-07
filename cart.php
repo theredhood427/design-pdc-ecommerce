@@ -24,6 +24,7 @@
                                 $img = "uploads/product_".$row['pid']."/".$fileO[2];
                             // var_dump($fileO);
                         }
+                        
                 ?>
                     <div class="d-flex w-100 justify-content-between  mb-2 py-2 border-bottom cart-item">
                         <div class="d-flex align-items-center col-8">
@@ -47,19 +48,22 @@
                             </div>
                         </div>
                         <div class="col text-right align-items-center d-flex justify-content-end">
-                            <h4><b class="total-amount"><?php echo number_format($row['price'] * $row['quantity']) ?></b></h4>
+                            <h4>₱ <b class="total-amount"><?php echo number_format($row['price'] * $row['quantity']) ?></b></h4>
                         </div>
                     </div>
-                <?php endwhile; ?>
+                
                 <div class="d-flex w-100 justify-content-between mb-2 py-2 border-bottom">
                     <div class="col-8 d-flex justify-content-end"><h4>Grand Total:</h4></div>
                     <div class="col d-flex justify-content-end"><h4 id="grand-total">-</h4></div>
+                    
                 </div>
+                <div class="d-flex w-100 justify-content-end">
+            <a href="./?p=checkout" class="btn btn-lg btn-flat btn-dark">Checkout</a>
+            </div>
+            <?php endwhile; ?>
             </div>
         </div>
-        <div class="d-flex w-100 justify-content-end">
-            <a href="./?p=checkout" class="btn btn-sm btn-flat btn-dark">Checkout</a>
-        </div>
+
     </div>
 </section>
 <script>
@@ -114,7 +118,26 @@
             }
 
         })
+        $(document).ready(function() {
+  // Check the value of the cart-qty input when the page loads
+  checkQuantity();
+
+  // Also check the value of the cart-qty input when it is changed
+  $('.cart-qty').change(function() {
+    checkQuantity();
+  });
+});
+
+function checkQuantity() {
+  var qty = parseInt($('.cart-qty').val());
+  if (qty < 1) {
+    $('.btn-dark').hide();
+  } else {
+    $('.btn-dark').show();
+  }
+}
     }
+    
     function rem_item(id){
         $('.modal').modal('hide')
         var _this = $('.rem_item[data-id="'+id+'"]')
@@ -136,6 +159,7 @@
                     item.hide('slow',function(){ item.remove() })
                     calc_total()
                     end_loader()
+                    history.go(0)
                 }else{
                     alert_toast("an error occured", 'error');
                     end_loader()
